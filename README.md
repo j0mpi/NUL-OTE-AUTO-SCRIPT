@@ -25,8 +25,9 @@ Finds the correct radio input for one table row:
 2. Open browser DevTools Console (CTRL + SHIFT + J) / F12 > Console tab
 3. Paste all code from `scraper-javascript.js` and press Enter.
 4. Input 'allow pasting' if there is an error prompted about pasting
-5. Type a number from `1` to `7` on the evaluation page to fill every row with that score.
+5. Enter a number from `1` to `7` in the prompt that appears after the script loads.
 	If the number is outside that range, the script displays: `Incorrect value, input only from 1 to 7. Try again`
+6. To enter another grade without pasting the script again, press `Ctrl + Shift + G`.
 
 You can also run the function directly:
 

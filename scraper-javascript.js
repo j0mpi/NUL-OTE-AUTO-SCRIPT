@@ -47,9 +47,30 @@
     return { score: normalized, filled, skipped };
   }
 
+  function promptForScore() {
+    let value = prompt('Enter a grade from 1 to 7:');
+
+    while (value !== null) {
+      const score = Number(value.trim());
+      if (Number.isInteger(score) && score >= 1 && score <= 7) {
+        fillTeacherEvaluation(score);
+        return;
+      }
+
+      alert('Incorrect value, input only from 1 to 7. Try again');
+      value = prompt('Enter a grade from 1 to 7:');
+    }
+  }
+
   window.fillTeacherEvaluation = fillTeacherEvaluation;
 
   document.addEventListener('keydown', (event) => {
+    if (event.ctrlKey && event.shiftKey && event.key.toLowerCase() === 'g') {
+      event.preventDefault();
+      promptForScore();
+      return;
+    }
+
     if (event.target.matches('input, textarea, select, [contenteditable="true"]')) {
       return;
     }
@@ -70,6 +91,8 @@
   });
 
   console.log(
-    'Script loaded. Press a number from 1 to 7 to fill the evaluation.'
+    'Script loaded. Enter a grade in the prompt, or press a number from 1 to 7 on the page. If you want to refresh your grade just press ctrl + shift + g and enter a new grade in the prompt.'
   );
+
+  promptForScore();
 })();
