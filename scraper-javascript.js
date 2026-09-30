@@ -49,7 +49,27 @@
 
   window.fillTeacherEvaluation = fillTeacherEvaluation;
 
+  document.addEventListener('keydown', (event) => {
+    if (event.target.matches('input, textarea, select, [contenteditable="true"]')) {
+      return;
+    }
+
+    if (!/^\d$/.test(event.key)) {
+      return;
+    }
+
+    event.preventDefault();
+
+    const score = Number(event.key);
+    if (score < 1 || score > 7) {
+      alert('Incorrect value, input only from 1 to 7. Try again');
+      return;
+    }
+
+    fillTeacherEvaluation(score);
+  });
+
   console.log(
-    'Script loaded. Run: fillTeacherEvaluation(score) with score as an integer from 1 to 7.'
+    'Script loaded. Press a number from 1 to 7 to fill the evaluation.'
   );
 })();

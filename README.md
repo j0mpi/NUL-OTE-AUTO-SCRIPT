@@ -25,7 +25,10 @@ Finds the correct radio input for one table row:
 2. Open browser DevTools Console (CTRL + SHIFT + J) / F12 > Console tab
 3. Paste all code from `scraper-javascript.js` and press Enter.
 4. Input 'allow pasting' if there is an error prompted about pasting
-5. Run the command: fillTeacherEvaluation(score from 1-7) like the text below
+5. Type a number from `1` to `7` on the evaluation page to fill every row with that score.
+	If the number is outside that range, the script displays: `Incorrect value, input only from 1 to 7. Try again`
+
+You can also run the function directly:
 
 ```js
 fillTeacherEvaluation(7)
